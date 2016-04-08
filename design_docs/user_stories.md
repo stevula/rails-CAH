@@ -16,3 +16,5 @@ giving the owner an "Awesome Point".
 4. User can make their own card.
 5. User can play with another user remotely.
 6. User can chat with another user.
+7. User can make an account, with an avatar and personal details.
+8. User can save games and continue them at a later time.
