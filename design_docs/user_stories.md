@@ -4,7 +4,7 @@
 2. User can own and see a set of white (answer) cards.
 3. User can play a white card when it is not their turn to draw the black card 
 (not the "Card Czar"). 
-4. User can play 2 cards for specific black cards.
+4. User can play more than one white card for certain black cards.
 5. User who drew the black card ("Card Czar") can select the winning white card, 
 giving the owner an "Awesome Point".
 6. User can win by scoring the required amount of Awesome Points.
