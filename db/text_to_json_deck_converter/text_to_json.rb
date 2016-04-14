@@ -106,4 +106,4 @@ class TextToJsonDeckConverter
   end
 end
 
-TextToJsonDeckConverter.new('../raw_decks')
+TextToJsonDeckConverter.new('../raw_decks/official')
