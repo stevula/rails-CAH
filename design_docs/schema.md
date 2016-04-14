@@ -13,7 +13,7 @@ Fields: Name (str)
 Has many: Decks
 
 ## Deck
-Fields: Name (str), Series (str), Official (bool), Description (text)
+Fields: Title (str), Series (str), Official (bool), Description (text)
 Has many: Cards
 Belongs to: Category
 
@@ -23,5 +23,5 @@ Has many: Cards
 Belongs to: Game
 
 ## Card
-Fields: Text (text), Black (bool), Slots (int)
+Fields: Text (text), Color (string), Blanks (int)
 Belongs to: Deck, Player
