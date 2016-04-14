@@ -3,7 +3,9 @@ class CreateCards < ActiveRecord::Migration
     create_table :cards do |t|
       t.text :text
       t.string :color
-      t.integer :blanks
+      t.integer :pick
+      t.integer :draw
+      t.references :deck
     end
   end
 end

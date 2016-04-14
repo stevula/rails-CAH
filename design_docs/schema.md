@@ -23,5 +23,5 @@ Has many: Cards
 Belongs to: Game
 
 ## Card
-Fields: Text (text), Color (string), Blanks (int)
+Fields: Text (text), Color (string), Pick (int), Draw (int)
 Belongs to: Deck, Player

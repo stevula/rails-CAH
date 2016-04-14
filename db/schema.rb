@@ -16,7 +16,9 @@ ActiveRecord::Schema.define(version: 20160414230534) do
   create_table "cards", force: :cascade do |t|
     t.text    "text"
     t.string  "color"
-    t.integer "blanks"
+    t.integer "pick"
+    t.integer "draw"
+    t.integer "deck_id"
   end
 
   create_table "decks", force: :cascade do |t|
