@@ -11,21 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414230534) do
+ActiveRecord::Schema.define(version: 20160415012620) do
 
   create_table "cards", force: :cascade do |t|
-    t.text    "text"
-    t.string  "color"
-    t.integer "pick"
-    t.integer "draw"
-    t.integer "deck_id"
+    t.text     "text"
+    t.string   "color"
+    t.integer  "pick"
+    t.integer  "draw"
+    t.integer  "deck_id"
+    t.integer  "pile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "decks", force: :cascade do |t|
-    t.string  "title"
-    t.string  "series"
-    t.boolean "official"
-    t.text    "description"
+    t.string   "title"
+    t.string   "series"
+    t.boolean  "official"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer  "win_threshold"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "piles", force: :cascade do |t|
+    t.boolean  "discarded"
+    t.integer  "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

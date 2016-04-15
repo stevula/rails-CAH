@@ -1,5 +1,5 @@
 require 'json'
-require 'pry'
+
 decks_directory = File.expand_path('db/decks')
 
 Dir["#{decks_directory}/*.json"].each do |file_name|
