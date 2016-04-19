@@ -11,7 +11,6 @@ class BlackCard < Card
   validate :question_format, if: "text.present?"
 
   def question_format
-    # byebug
     unless text.match("______") || text[-1] == ("?")
       errors.add(:text, "must be formatted as a question")
     end

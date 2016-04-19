@@ -6,17 +6,15 @@ FactoryGirl.define do
     deck_id 1
   end
 
-  factory :black_card_2 do
-    text "My ______ hurts!"
+  trait :double do
+    text "I love ______ and ______."
     pick 2
     draw 0
-    deck_id 1
   end
 
-  factory :black_card_3 do
-    text "My ______ hurts!"
+  trait :triple do
+    text "_____ + _____ = _____."
     pick 3
     draw 2
-    deck_id 1
   end
 end

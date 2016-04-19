@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Card, type: :model do
   let (:black_card) {build(:black_card)}
+  let (:double_black_card) {build(:black_card, :double)}
+  let (:triple_black_card) {build(:black_card, :triple)}
   let (:white_card) {build(:white_card)}
 
   it 'does not save without text' do
@@ -39,6 +41,12 @@ RSpec.describe Card, type: :model do
       # neither
       black_card.text = "I'm a bad card."
       expect(black_card).to_not be_valid
+    end
+
+    it 'requires as many picks as there are blanks' do
+      expect(black_card.pick).to be 1
+      expect(double_black_card.pick).to be 2
+      expect(triple_black_card.pick).to be 3
     end
   end
 
