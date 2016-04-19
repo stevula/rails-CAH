@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  root 'settings#new'
+  root 'games#new'
 
-  resources :settings
+  resources :games
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,4 +1,6 @@
 class Card < ActiveRecord::Base
   belongs_to :deck
-  belongs_to :pile
 end
+
+class BlackCard < Card; end
+class WhiteCard < Card; end

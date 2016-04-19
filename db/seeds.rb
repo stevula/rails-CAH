@@ -16,7 +16,7 @@ Dir["#{decks_directory}/*.json"].each do |file_name|
 
   deck_data["black_cards"].each do |black_card|
     deck.cards.create(
-      color: "black",
+      type: "BlackCard",
       text:  black_card["text"],
       pick:  black_card["pick"],
       draw:  black_card["draw"]
@@ -25,7 +25,7 @@ Dir["#{decks_directory}/*.json"].each do |file_name|
 
   deck_data["white_cards"].each do |white_card|
     deck.cards.create(
-      color: "white",
+      type: "WhiteCard",
       text:  white_card["text"]
     )
   end
