@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20160419012732) do
     t.integer  "pick"
     t.integer  "draw"
     t.integer  "deck_id"
-    t.integer  "pile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
