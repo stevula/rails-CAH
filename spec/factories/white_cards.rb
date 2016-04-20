@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :white_card do
-    text "Brain."
-    deck_id 1
+    sequence(:text) {|n| "White card text #{n}."}
+    deck
   end
 end

@@ -1,9 +1,13 @@
 FactoryGirl.define do
   factory :black_card do
-    text "My ______ hurts!"
+    sequence(:text) {|n| "Black card text ______ #{n}."}
     pick 1
     draw 0
-    deck_id 1
+    deck
+  end
+
+  trait :question do
+    text "What did I eat today?"
   end
 
   trait :double do
