@@ -7,7 +7,7 @@ FactoryGirl.define do
 
     after(:create) do |deck, evaluator|
       create_list(:white_card, 10, deck: deck)
-      create_list(:black_card, 2, deck: deck)
+      create_list(:black_card, 2,  deck: deck)
     end
   end
 end
