@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20160419012732) do
 
   create_table "decks", force: :cascade do |t|
     t.string   "title",       null: false
-    t.string   "series",      null: false
-    t.boolean  "official",    null: false
+    t.string   "series"
+    t.boolean  "official"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

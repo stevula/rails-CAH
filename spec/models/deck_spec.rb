@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Deck, type: :model do
   let(:deck) {build(:deck)}
 
-  describe 'Validations' do
+  describe 'on validation' do
     it 'has a title' do
       deck.title = nil
       expect(deck).to be_invalid
@@ -24,7 +24,7 @@ RSpec.describe Deck, type: :model do
     end
   end
 
-  describe 'Relations' do
+  describe 'relationality' do
     it 'has many cards' do
       pending
     end
