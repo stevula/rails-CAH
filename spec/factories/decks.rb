@@ -6,12 +6,12 @@ FactoryGirl.define do
     official    false
     description "The coolest deck."
 
-    factory :deck_with_cards do
-      after(:build) do |deck|
-        binding.pry
-        create_list(:white_card, 10, deck: deck)
-        create_list(:black_card, 2,  deck: deck)
-      end
+    after(:build) do |deck|
+      create_list(:white_card, 10, deck: deck)
+      create(:black_card,          deck: deck)
+      create(:black_card_question, deck: deck)
+      create(:black_card_double,   deck: deck)
+      create(:black_card_triple,   deck: deck)
     end
   end
 end

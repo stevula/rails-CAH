@@ -6,6 +6,7 @@ class Card < ActiveRecord::Base
 end
 
 class BlackCard < Card
+  belongs_to :deck
   validates :pick, numericality: {greater_than: 0}
   validates :draw, numericality: true
   validate  :question_format, if: "text.present?"
@@ -20,4 +21,6 @@ class BlackCard < Card
   end
 end
 
-class WhiteCard < Card; end
+class WhiteCard < Card
+  belongs_to :deck
+end

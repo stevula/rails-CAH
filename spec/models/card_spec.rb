@@ -1,14 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Card, type: :model do
-  let(:deck) {create(:deck_with_cards)}
-  let(:black_card)          {deck.black_cards.first}
+  let(:deck)                {create(:deck)}
   let(:white_card)          {deck.white_cards.first}
-  # let(:black_card)          {build(:black_card)}
-  # let(:question_black_card) {build(:black_card, :question)}
-  # let(:double_black_card)   {build(:black_card, :double)}
-  # let(:triple_black_card)   {build(:black_card, :triple)}
-  # let(:white_card)          {build(:white_card)}
+  let(:black_card)          {deck.black_cards.first}
+  let(:question_black_card) {deck.black_cards[1]}
+  let(:double_black_card)   {deck.black_cards[2]}
+  let(:triple_black_card)   {deck.black_cards[3]}
 
   describe 'on validation' do
     it 'has a text value' do
@@ -41,7 +39,8 @@ RSpec.describe Card, type: :model do
 
   describe 'relationality' do
     it 'belongs to a deck' do
-      pending
+      expect(white_card.deck).to be deck
+      expect(black_card.deck).to be deck
     end
   end
 
