@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 20160422023536) do
   end
 
   create_table "decks_games", id: false, force: :cascade do |t|
-    t.integer "decks_id"
-    t.integer "games_id"
+    t.integer "deck_id"
+    t.integer "game_id"
   end
 
-  add_index "decks_games", ["decks_id"], name: "index_decks_games_on_decks_id"
-  add_index "decks_games", ["games_id"], name: "index_decks_games_on_games_id"
+  add_index "decks_games", ["deck_id"], name: "index_decks_games_on_deck_id"
+  add_index "decks_games", ["game_id"], name: "index_decks_games_on_game_id"
 
   create_table "games", force: :cascade do |t|
     t.integer  "win_threshold", default: 10
