@@ -1,5 +1,7 @@
 class Card < ActiveRecord::Base
   belongs_to :deck
+  belongs_to :game
+
   validates  :text, presence: true, uniqueness: {scope: :deck_id}
   validates  :type, presence: true
   validates  :deck_id, presence: true

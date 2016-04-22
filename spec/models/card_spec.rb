@@ -8,7 +8,7 @@ RSpec.describe Card, type: :model do
   let(:double_black_card)   {deck.black_cards[2]}
   let(:triple_black_card)   {deck.black_cards[3]}
 
-  context 'on validation' do
+  describe 'on validation' do
     it 'has a text value' do
       black_card.text = nil
       white_card.text = nil
@@ -37,14 +37,14 @@ RSpec.describe Card, type: :model do
     end
   end
 
-  context 'relationality' do
+  describe 'relationality' do
     it 'belongs to a deck' do
       expect(white_card.deck).to be deck
       expect(black_card.deck).to be deck
     end
   end
 
-  context 'BlackCard' do
+  describe 'BlackCard' do
     it 'has a pick value of at least 1' do
       black_card.pick = 0
       expect(black_card).to be_invalid
@@ -72,6 +72,6 @@ RSpec.describe Card, type: :model do
     end
   end
 
-  context 'WhiteCard' do
+  describe 'WhiteCard' do
   end
 end
