@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :card do
+    sequence(:id)
     deck
     
     factory :white_card do

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :deck do
-    id          1
+    sequence(:id)
     title       "Deckard's Main Deck"
     series      "The Deckard Series"
     official    false
