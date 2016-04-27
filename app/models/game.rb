@@ -1,7 +1,8 @@
 class Game < ActiveRecord::Base
-  has_and_belongs_to_many :players
-  has_and_belongs_to_many :decks
-  has_many :cards, through: :decks
+  has_many :card_selections
+  has_many :cards, through: :card_selections
+  has_many :white_cards, through: :card_selections, source: :card, class_name: 'WhiteCard'
+  has_many :black_cards, through: :card_selections, source: :card, class_name: 'BlackCard'
 
   validates :win_threshold, numericality: {greater_than: 0}
 

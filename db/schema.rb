@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422232220) do
+ActiveRecord::Schema.define(version: 20160427013804) do
+
+  create_table "card_selections", id: false, force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "game_id"
+  end
 
   create_table "cards", force: :cascade do |t|
     t.text     "text",       null: false
@@ -32,21 +37,13 @@ ActiveRecord::Schema.define(version: 20160422232220) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "decks_games", id: false, force: :cascade do |t|
-    t.integer "deck_id"
-    t.integer "game_id"
-  end
-
-  add_index "decks_games", ["deck_id"], name: "index_decks_games_on_deck_id"
-  add_index "decks_games", ["game_id"], name: "index_decks_games_on_game_id"
-
   create_table "games", force: :cascade do |t|
     t.integer  "win_threshold", default: 10
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "games_players", force: :cascade do |t|
+  create_table "games_players", id: false, force: :cascade do |t|
     t.integer "deck_id"
     t.integer "game_id"
   end

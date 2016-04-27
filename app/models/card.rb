@@ -1,28 +1,9 @@
 class Card < ActiveRecord::Base
+  has_many   :card_selections
+  has_many   :games, through: :card_selections
   belongs_to :deck
-  belongs_to :game
 
-  validates  :text, presence: true, uniqueness: {scope: :deck_id}
-  validates  :type, presence: true
+  validates  :text,    presence: true, uniqueness: {scope: :deck_id}
+  validates  :type,    presence: true
   validates  :deck_id, presence: true
-end
-
-class BlackCard < Card
-  belongs_to :deck
-  validates :pick, numericality: {greater_than: 0}
-  validates :draw, numericality: true
-  validate  :question_format, if: "text.present?"
-
-  def question_format
-    exceptions = ["Make a haiku."]
-    return if exceptions.include? text
-
-    unless text.match("______") || text[-1] == ("?")
-      errors.add(:text, "must be formatted as a question")
-    end
-  end
-end
-
-class WhiteCard < Card
-  belongs_to :deck
 end
