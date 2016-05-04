@@ -3,7 +3,7 @@ class DrawPile < ActiveRecord::Base
   has_many   :cards_draw_piles
   has_many   :cards, through: :cards_draw_piles
   has_many   :decks_draw_piles
-  has_many   :decks
+  has_many   :decks, through: :decks_draw_piles
 
   def pop
     top_card = self.cards.first
