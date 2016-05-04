@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427013804) do
-
-  create_table "card_selections", id: false, force: :cascade do |t|
-    t.integer "card_id"
-    t.integer "game_id"
-  end
+ActiveRecord::Schema.define(version: 20160503232050) do
 
   create_table "cards", force: :cascade do |t|
     t.text     "text",       null: false
@@ -28,6 +23,11 @@ ActiveRecord::Schema.define(version: 20160427013804) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cards_draw_piles", id: false, force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "draw_pile_id"
+  end
+
   create_table "decks", force: :cascade do |t|
     t.string   "title",       null: false
     t.string   "series"
@@ -37,6 +37,22 @@ ActiveRecord::Schema.define(version: 20160427013804) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "decks_draw_piles", force: :cascade do |t|
+    t.integer  "deck_id"
+    t.integer  "draw_pile_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "draw_piles", force: :cascade do |t|
+    t.string   "type",       null: false
+    t.integer  "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "draw_piles", ["game_id"], name: "index_draw_piles_on_game_id"
+
   create_table "games", force: :cascade do |t|
     t.integer  "win_threshold", default: 10
     t.datetime "created_at",                 null: false
@@ -44,16 +60,15 @@ ActiveRecord::Schema.define(version: 20160427013804) do
   end
 
   create_table "games_players", id: false, force: :cascade do |t|
-    t.integer "deck_id"
     t.integer "game_id"
+    t.integer "player_id"
   end
 
-  add_index "games_players", ["deck_id"], name: "index_games_players_on_deck_id"
   add_index "games_players", ["game_id"], name: "index_games_players_on_game_id"
+  add_index "games_players", ["player_id"], name: "index_games_players_on_player_id"
 
   create_table "players", force: :cascade do |t|
     t.integer  "points",     default: 0
-    t.integer  "game_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :card_selection do
+  factory :decks_draw_pile do
     
   end
 end

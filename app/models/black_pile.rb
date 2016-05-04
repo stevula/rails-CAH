@@ -1,0 +1,2 @@
+class BlackPile < DrawPile
+end

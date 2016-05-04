@@ -39,8 +39,8 @@ RSpec.describe Card, type: :model do
 
   describe 'relationality' do
     it 'belongs to a deck' do
-      expect(white_card.deck).to be deck
-      expect(black_card.deck).to be deck
+      expect(white_card.deck.id).to be deck.id
+      expect(black_card.deck.id).to be deck.id
     end
   end
 

@@ -16,36 +16,52 @@ RSpec.describe Game, type: :model do
   end
 
   context 'relationality' do
-    it 'has many decks' do
-      expect(game.decks).to have_at_least(2).items
+    it 'has a black draw pile' do
+      expect(game.black_pile).to be_a BlackPile
+    end
+
+    it 'has a white draw pile' do
+      expect(game.white_pile).to be_a WhitePile
     end
   end
 
-  describe '#black' do
-    it 'returns a random black card from any of its decks' do
-      card = game.black
-      expect(card).to be_a BlackCard
-      expect(game.decks).to include card.deck
+  describe '#draw_black' do
+    it 'returns a black card' do
+      expect(game.draw_black).to be_a BlackCard
     end
 
-    it 'does not return the time same card twice' do
-      number_of_black_cards = game.decks.inject(0) {|sum, deck| sum + deck.black_cards.count}
-      card = game.black
-      expect(game.black).not_to be card
+    it 'does not return the same card twice before the cards are exhausted' do
+      drawn_cards = []
+      game.black_pile.remaining_cards.times do
+        drawn_cards << game.draw_black
+      end
+      expect(drawn_cards.uniq).to match_array(drawn_cards)
+    end
+
+    it 'draws repeated cards once the draw pile has been exhausted' do
+      pending
+      # game.black_pile.remaining_cards.times do
+      #   game.draw_black
+      # end
+      # expect(game.draw_black).to be_a BlackCard
     end
   end
 
-  describe '#white' do
-    it 'returns a random white card from any of its decks' do
-      card = game.white
-      expect(card).to be_a WhiteCard
-      expect(game.decks).to include card.deck
+  describe '#draw_white' do
+    it 'returns a white card' do
+      expect(game.draw_white).to be_a WhiteCard
     end
 
-    it 'does not return the time same card twice' do
-      puts number_of_white_cards = game.decks.inject(0) {|sum, deck| sum + deck.white_cards.count}
-      card = game.white
-      expect(game.white).not_to be card
+    it 'does not return the same card twice before the cards are exhausted' do
+      drawn_cards = []
+      game.white_pile.remaining_cards.times do
+        drawn_cards << game.draw_black
+      end
+      expect(drawn_cards.uniq).to match_array(drawn_cards)
+    end
+
+    it 'draws repeated cards once the draw pile has been exhausted' do
+      pending
     end
   end
 end

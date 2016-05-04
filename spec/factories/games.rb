@@ -4,7 +4,8 @@ FactoryGirl.define do
     win_threshold 10
 
     after(:build) do |game|
-      create_list(:deck, 3, games: [game])
+      create(:draw_pile, :white, game: game)
+      create(:draw_pile, :black, game: game)
     end
   end
 end

@@ -5,7 +5,7 @@ class CreateCards < ActiveRecord::Migration
       t.string     :type, null: false
       t.integer    :pick
       t.integer    :draw
-      t.references :deck
+      t.belongs_to :deck
       
       t.timestamps null: false
     end

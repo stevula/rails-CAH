@@ -1,0 +1,2 @@
+class WhitePile < DrawPile
+end
