@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe DrawPile, type: :model do
-  let(:white_pile) {create(:draw_pile, :white)}
-  let(:black_pile) {create(:draw_pile, :black)}
+  let(:white_pile) {create(:white_pile)}
+  let(:black_pile) {create(:black_pile)}
 
   context 'on validation' do
   end
