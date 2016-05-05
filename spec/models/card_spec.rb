@@ -5,7 +5,7 @@ RSpec.describe Card, type: :model do
   let(:white_card)          {deck.white_cards.first}
   let(:black_card)          {deck.black_cards.first}
 
-  describe 'on validation' do
+  context 'on validation' do
     it 'has a text value' do
       black_card.text = nil
       white_card.text = nil

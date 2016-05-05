@@ -5,6 +5,12 @@ RSpec.describe DrawPile, type: :model do
   let(:black_pile) {create(:black_pile)}
 
   context 'on validation' do
+    it 'has a type' do
+      black_pile.type = nil
+      white_pile.type = nil
+      expect(black_pile).to be_invalid
+      expect(white_pile).to be_invalid
+    end
   end
 
   context 'relationality' do
@@ -16,6 +22,13 @@ RSpec.describe DrawPile, type: :model do
     it 'has many remaining (undrawn) cards' do
       expect(white_pile.cards).to have_at_least(1).white_cards
       expect(black_pile.cards).to have_at_least(1).black_cards
+    end
+  end
+
+  context 'on build' do
+      it 'randomizes the cards' do
+        pending
+      end
     end
   end
 
