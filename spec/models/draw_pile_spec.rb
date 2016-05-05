@@ -26,9 +26,8 @@ RSpec.describe DrawPile, type: :model do
   end
 
   context 'on build' do
-      it 'randomizes the cards' do
-        pending
-      end
+    it 'randomizes the cards' do
+      pending
     end
   end
 

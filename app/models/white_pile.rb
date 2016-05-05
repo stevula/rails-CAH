@@ -1,10 +1,17 @@
 class WhitePile < DrawPile
-  def draw(number_of_cards)
-    drawn_cards = self.cards.first(number_of_cards)
+  def draw(required_amount=1)
+    deficit = required_amount - self.size
+    drawn_cards = self.cards.first(required_amount)
+
+    if deficit > 0
+      replenish
+      drawn_cards += self.cards.first(deficit)
+    end
+
     self.cards.delete(drawn_cards)
   end
 
-  def replenish(discard_pile)
-    self.cards = discard_pile.cards
+  def replenish
+    self.cards = self.game.discard_pile.cards
   end
 end
