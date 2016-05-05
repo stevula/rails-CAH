@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503232050) do
+ActiveRecord::Schema.define(version: 20160505211231) do
 
   create_table "cards", force: :cascade do |t|
     t.text     "text",       null: false
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20160503232050) do
     t.integer  "deck_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cards_discard_piles", id: false, force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "discard_pile_id"
   end
 
   create_table "cards_draw_piles", id: false, force: :cascade do |t|
@@ -37,12 +42,13 @@ ActiveRecord::Schema.define(version: 20160503232050) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "decks_draw_piles", force: :cascade do |t|
-    t.integer  "deck_id"
-    t.integer  "draw_pile_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "discard_piles", force: :cascade do |t|
+    t.integer  "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "discard_piles", ["game_id"], name: "index_discard_piles_on_game_id"
 
   create_table "draw_piles", force: :cascade do |t|
     t.string   "type",       null: false
