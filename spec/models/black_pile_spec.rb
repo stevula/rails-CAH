@@ -14,12 +14,8 @@ RSpec.describe BlackPile, type: :model do
       expect(drawn_cards.uniq).to match_array(drawn_cards)
     end
 
-    it 'draws repeated cards once the draw pile has been exhausted' do
+    it 'TODO - what happens when black pile exhausted?' do
       pending
-      # game.black_pile.remaining_cards.times do
-      #   game.draw_black
-      # end
-      # expect(game.draw_black).to be_a BlackCard
     end
   end
 end

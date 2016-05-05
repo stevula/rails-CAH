@@ -15,7 +15,7 @@ FactoryGirl.define do
     end
 
     factory :black_card_triple do
-      text "_____ + _____ = _____."
+      text "______ + ______ = ______."
       pick 3
       draw 2
     end
