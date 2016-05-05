@@ -13,10 +13,13 @@ RSpec.describe WhitePile, type: :model do
     end
 
     it 'does not return the same card twice while cards remain to be drawn' do
-      pending
+      drawn_cards = []
+      white_pile.size.times {drawn_cards << white_pile.draw(1)}
+      drawn_cards.flatten!
+      expect(drawn_cards).to match_array drawn_cards.uniq
     end
 
-    it 'TODO: repeats discarded cards once it is depleted (contingent on discard_pile' do
+    it 'TODO: repeats discarded cards once it is depleted (requires discard pile)' do
       pending
     end
   end

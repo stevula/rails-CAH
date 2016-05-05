@@ -13,11 +13,6 @@ RSpec.describe DrawPile, type: :model do
       expect(black_pile.game).to be_a Game
     end
 
-    it 'has many decks' do
-      expect(white_pile.decks).to have_at_least(1).decks
-      expect(black_pile.decks).to have_at_least(1).decks
-    end
-
     it 'has many remaining (undrawn) cards' do
       expect(white_pile.remaining_cards).to have_at_least(1).white_cards
       expect(black_pile.remaining_cards).to have_at_least(1).black_cards
