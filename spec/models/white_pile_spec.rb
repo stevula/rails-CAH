@@ -10,6 +10,10 @@ RSpec.describe WhitePile, type: :model do
       expect(white_pile.draw.first).to be_a WhiteCard
     end
 
+    it 'does not return cards in the same order every time' do
+      pending "This is hard"
+    end
+
     it 'returns the given number of white cards' do
       expect(white_pile.draw).to have_exactly(1).white_cards
       expect(white_pile.draw(2)).to have_exactly(2).white_cards
@@ -41,6 +45,12 @@ RSpec.describe WhitePile, type: :model do
     end
 
     it 'exhausts the remaining cards before recycling used cards' do
+      remaining_cards = white_pile.cards.to_a
+      drawn_cards     = white_pile.draw(4)
+      expect(remaining_cards - drawn_cards).to be_empty
+    end
+
+    it 'raises some error when there are not enough cards to draw from' do
       pending
     end
   end
@@ -51,10 +61,6 @@ RSpec.describe WhitePile, type: :model do
       expect(white_pile.size).to be 0
       white_pile.replenish
       expect(white_pile.cards).to match_array discard_pile.cards
-    end
-
-    it 'randomizes the cards' do
-      pending
     end
   end
 end

@@ -25,12 +25,6 @@ RSpec.describe DrawPile, type: :model do
     end
   end
 
-  context 'on build' do
-    it 'randomizes the cards' do
-      pending
-    end
-  end
-
   describe '#size' do
     it 'returns the number of remaining cards' do
       expect(white_pile.size).to be white_pile.cards.count
