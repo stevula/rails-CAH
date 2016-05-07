@@ -1,4 +1,4 @@
-class Hand < ActiveRecord::Base
+class CardsPlayer < ActiveRecord::Base
   belongs_to :card
   belongs_to :player
 end

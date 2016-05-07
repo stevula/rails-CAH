@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 20160507004903) do
     t.integer "draw_pile_id"
   end
 
+  create_table "cards_players", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "player_id"
+  end
+
+  add_index "cards_players", ["card_id"], name: "index_cards_players_on_card_id"
+  add_index "cards_players", ["player_id"], name: "index_cards_players_on_player_id"
+
   create_table "decks", force: :cascade do |t|
     t.string   "title",       null: false
     t.string   "series"
@@ -72,14 +80,6 @@ ActiveRecord::Schema.define(version: 20160507004903) do
 
   add_index "games_players", ["game_id"], name: "index_games_players_on_game_id"
   add_index "games_players", ["player_id"], name: "index_games_players_on_player_id"
-
-  create_table "hands", force: :cascade do |t|
-    t.integer "card_id"
-    t.integer "player_id"
-  end
-
-  add_index "hands", ["card_id"], name: "index_hands_on_card_id"
-  add_index "hands", ["player_id"], name: "index_hands_on_player_id"
 
   create_table "players", force: :cascade do |t|
     t.integer  "points",     default: 0
