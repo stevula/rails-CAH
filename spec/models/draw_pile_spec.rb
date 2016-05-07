@@ -1,10 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe DrawPile, type: :model do
-  let(:white_pile) {create(:draw_pile, :white)}
-  let(:black_pile) {create(:draw_pile, :black)}
+  let(:white_pile) {create(:white_pile)}
+  let(:black_pile) {create(:black_pile)}
 
   context 'on validation' do
+    it 'has a type' do
+      black_pile.type = nil
+      white_pile.type = nil
+      expect(black_pile).to be_invalid
+      expect(white_pile).to be_invalid
+    end
   end
 
   context 'relationality' do
@@ -13,14 +19,16 @@ RSpec.describe DrawPile, type: :model do
       expect(black_pile.game).to be_a Game
     end
 
-    it 'has many cards' do
+    it 'has many remaining (undrawn) cards' do
       expect(white_pile.cards).to have_at_least(1).white_cards
       expect(black_pile.cards).to have_at_least(1).black_cards
     end
+  end
 
-    it 'has many decks' do
-      expect(white_pile.decks).to have_at_least(1).decks
-      expect(black_pile.decks).to have_at_least(1).decks
+  describe '#size' do
+    it 'returns the number of remaining cards' do
+      expect(white_pile.size).to be white_pile.cards.count
+      expect(black_pile.size).to be black_pile.cards.count
     end
   end
 end
