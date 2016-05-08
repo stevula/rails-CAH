@@ -5,5 +5,5 @@ class Game < ActiveRecord::Base
   has_many :players
   has_many :rounds
 
-  validates :win_threshold, numericality: {greater_than: 0}
+  validates :win_threshold, numericality: {greater_than: 0}, presence: true
 end

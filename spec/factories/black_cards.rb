@@ -19,5 +19,11 @@ FactoryGirl.define do
       pick 3
       draw 2
     end
+
+    factory :invalid_black_card do
+      text "I'm a bad card."
+      pick 0
+      draw nil
+    end
   end
 end

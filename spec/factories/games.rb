@@ -7,5 +7,9 @@ FactoryGirl.define do
       create(:black_pile,   game: game)
       create(:discard_pile, game: game)
     end
+
+    factory :invalid_game do
+      win_threshold nil
+    end
   end
 end
