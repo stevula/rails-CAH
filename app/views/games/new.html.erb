@@ -1,0 +1,6 @@
+<%= form_for @game do |f| %>
+    <%= f.label        :win_threshold %>
+    <%= f.number_field :win_threshold %>
+
+    <%= f.submit "Start new game" %>
+<% end %>
