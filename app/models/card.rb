@@ -5,7 +5,7 @@ class Card < ActiveRecord::Base
   has_many   :draw_piles, through: :cards_draw_piles
   has_many   :players,    through: :cards_players
 
-  validates  :text,    presence: true, uniqueness: {scope: :deck_id}
-  validates  :type,    presence: {in: ["WhiteCard", "BlackCard"]}
-  validates  :deck_id, presence: true
+  validates :text, uniqueness: {scope: :deck_id}, presence: true
+  validates :type, presence: {in: ["WhiteCard", "BlackCard"]}
+  validates :deck_id, presence: true
 end

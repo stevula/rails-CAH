@@ -8,19 +8,14 @@ RSpec.describe BlackPile, type: :model do
       expect(black_pile.draw).to be_a BlackCard
     end
 
-    it 'does not return cards in the same order every time' do
-      # this is hard
-      pending
-    end
-
     it 'does not return the same card twice' do
       drawn_cards = []
       black_pile.size.times {drawn_cards << black_pile.draw}
       expect(drawn_cards.uniq).to match_array(drawn_cards)
     end
 
-    it 'TODO - what happens when black pile exhausted?' do
-      pending
-    end
+    it 'does not return cards in the same order every time'
+
+    it 'raises an error if its cards are exhausted'
   end
 end

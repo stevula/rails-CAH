@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Card, type: :model do
-  let(:deck)                {create(:deck)}
-  let(:white_card)          {deck.white_cards.first}
-  let(:black_card)          {deck.black_cards.first}
+  let(:white_card) {create(:white_card)}
+  let(:black_card) {create(:black_card)}
 
   context 'on validation' do
     it 'has a text value' do
@@ -36,8 +35,8 @@ RSpec.describe Card, type: :model do
 
   describe 'relationality' do
     it 'belongs to a deck' do
-      expect(white_card.deck.id).to be deck.id
-      expect(black_card.deck.id).to be deck.id
+      expect(white_card.deck).to be_a Deck
+      expect(black_card.deck).to be_a Deck
     end
   end
 end

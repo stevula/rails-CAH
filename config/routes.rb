@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root 'games#new'
 
-  resources :games
+  resources :games do
+    resources :rounds
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
