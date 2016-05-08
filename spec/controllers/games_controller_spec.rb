@@ -1,16 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe GamesController, type: :controller do
-  let(:game)         {build(:game)}
-  let(:invalid_game) {build(:invalid_game)}
+  let(:built_game)   {build(:game)}
+  let(:created_game) {create(:game)}
 
   describe 'GET #new' do
-    before(:each) {get :new, game: game}
+    before(:each) {get :new}
 
-    it 'assigns a new game to @game'
+    it 'assigns a new game to @game' do
+      expect(assigns(:game)).to be_a Game
+      expect(assigns(:game).persisted?).to be false
+    end
 
     it 'renders the new template' do
-      get :new
       expect(response).to render_template :new
     end
   end
@@ -40,8 +42,14 @@ RSpec.describe GamesController, type: :controller do
   end
 
   describe 'GET #show' do
-    it 'assigns the requested game to @game'
+    before(:each) {get :show, id: created_game}
 
-    it 'renders the show template'
+    it 'assigns the requested game to @game' do
+      expect(assigns(:game)).to eq created_game
+    end
+
+    it 'renders the show template' do
+      expect(response).to render_template :show
+    end
   end
 end
