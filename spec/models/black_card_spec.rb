@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe BlackCard, type: :model do
-  let(:deck)                {create(:deck)}
-  let(:black_card)          {deck.black_cards.first}
-  let(:question_black_card) {deck.black_cards[1]}
-  let(:double_black_card)   {deck.black_cards[2]}
-  let(:triple_black_card)   {deck.black_cards[3]}
+  # let(:deck)                {create(:deck)}
+  let(:black_card)          {create(:black_card)}
+  let(:black_card_question) {create(:black_card_question)}
+  let(:black_card_double)   {create(:black_card_double)}
+  let(:black_card_triple)   {create(:black_card_triple)}
 
   it 'has a type of "BlackCard"' do
     expect(black_card.type).to eq "BlackCard"
@@ -25,7 +25,7 @@ RSpec.describe BlackCard, type: :model do
     # one blank
     expect(black_card).to be_valid
     # question mark
-    expect(question_black_card).to be_valid
+    expect(black_card_question).to be_valid
     # neither
     black_card.text = "I'm a bad card."
     expect(black_card).to be_invalid
@@ -33,7 +33,7 @@ RSpec.describe BlackCard, type: :model do
 
   it 'requires as many picks as there are blanks' do
     expect(black_card.pick).to be 1
-    expect(double_black_card.pick).to be 2
-    expect(triple_black_card.pick).to be 3
+    expect(black_card_double.pick).to be 2
+    expect(black_card_triple.pick).to be 3
   end
 end

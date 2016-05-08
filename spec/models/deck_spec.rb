@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Deck, type: :model do
-  let(:deck) {create(:deck)}
+  let(:deck)            {create(:deck)}
+  let(:deck_with_cards) {create(:deck, :with_cards)}
 
   context 'on validation' do
     it 'has a title' do
@@ -19,7 +20,8 @@ RSpec.describe Deck, type: :model do
 
   context 'relationality' do
     it 'has many cards' do
-      expect(deck.cards).to have_at_least(2).items
+      expect(deck_with_cards.cards.first).to be_a Card
+      expect(deck_with_cards.cards).to have_at_least(1).cards
     end
   end
 end
