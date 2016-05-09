@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507011938) do
+ActiveRecord::Schema.define(version: 20160508234742) do
 
   create_table "cards", force: :cascade do |t|
     t.text     "text",       null: false
@@ -82,8 +82,9 @@ ActiveRecord::Schema.define(version: 20160507011938) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer  "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "round_number"
   end
 
 end
