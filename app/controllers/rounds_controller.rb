@@ -6,6 +6,7 @@ class RoundsController < ApplicationController
     if @round.save
       redirect_to game_round_path(game, @round)
     else
+      # placeholder
       redirect_to root_url
     end
   end

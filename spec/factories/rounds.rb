@@ -9,8 +9,8 @@ FactoryGirl.define do
       end
     end
 
-    factory :invalid_round do
-      round_number nil
-    end
+    # factory :invalid_round do
+    #   round_number nil
+    # end
   end
 end
