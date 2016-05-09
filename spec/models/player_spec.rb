@@ -15,7 +15,5 @@ RSpec.describe Player, type: :model do
     it 'belongs to a game' do
       expect(player.game).to be_a Game
     end
-
-    it 'has a hand'
   end
 end

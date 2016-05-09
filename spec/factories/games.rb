@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :game do
     win_threshold 10
+    current_round 1
 
     after(:create) do |game|
       create(:white_pile,   game: game)

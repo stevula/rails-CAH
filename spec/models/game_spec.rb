@@ -13,6 +13,11 @@ RSpec.describe Game, type: :model do
       game.win_threshold = nil
       expect(game).to be_invalid
     end
+
+    it 'has a current round number' do
+      game.current_round = nil
+      expect(game).to be_invalid
+    end
   end
 
   context 'relationality' do
