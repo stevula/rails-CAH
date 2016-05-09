@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509002948) do
+ActiveRecord::Schema.define(version: 20160509004641) do
 
   create_table "cards", force: :cascade do |t|
     t.text     "text",       null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160509002948) do
     t.integer  "win_threshold", default: 10
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "current_round"
   end
 
   create_table "players", force: :cascade do |t|
@@ -87,9 +88,8 @@ ActiveRecord::Schema.define(version: 20160509002948) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer  "game_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "round_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

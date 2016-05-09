@@ -17,9 +17,12 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
+  def update
+  end
+
   private
 
   def game_params
-    params.require(:game).permit(:win_threshold)
+    params.require(:game).permit(:win_threshold, :current_round)
   end
 end

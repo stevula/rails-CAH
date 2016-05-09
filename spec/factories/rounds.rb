@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :round do
-    sequence(:round_number)
     game
 
     trait :with_played_cards do

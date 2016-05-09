@@ -18,13 +18,14 @@ RSpec.describe RoundsController, type: :controller do
       end
     end
 
-    context 'with invalid attributes' do
-      it 'does not save the new round to the database' do
-        expect{post :create, round: attributes_for(:invalid_round), game_id: game}.not_to change{Round.count}
-      end
+    # need to determine what/if round even has attributes
+    # context 'with invalid attributes' do
+    #   it 'does not save the new round to the database' do
+    #     expect{post :create, round: attributes_for(:invalid_round), game_id: game}.not_to change{Round.count}
+    #   end
 
-      it 'raises/logs an error'
-    end
+    #   it 'raises/logs an error'
+    # end
   end
 
   describe 'GET #show' do

@@ -1,7 +1,7 @@
 class RoundsController < ApplicationController
   def create
     game   = Game.find(params[:game_id])
-    @round = game.rounds.build(round_params)
+    @round = game.rounds.build
 
     if @round.save
       redirect_to game_round_path(game, @round)
@@ -17,7 +17,7 @@ class RoundsController < ApplicationController
 
   private
 
-  def round_params
-    params.require(:round).permit(:round_number)
-  end
+  # def round_params
+  #   params.require(:round)
+  # end
 end
